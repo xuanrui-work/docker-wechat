@@ -53,9 +53,9 @@ RUN wget $WECHAT_URL -O /tmp/wechat-install.deb && \
   rm /tmp/wechat-install.deb
 
 # Create a non-root user for running WeChat
-RUN useradd -m wechatuser
-USER wechatuser
-WORKDIR /home/wechatuser
+# RUN useradd -m wechatuser
+# USER wechatuser
+# WORKDIR /home/wechatuser
 
 # Set display and pulse audio defaults
 ENV DISPLAY=:0

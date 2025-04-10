@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: wechat-docker
-    container_name: wechat-docker
+    image: docker-wechat
+    container_name: docker-wechat
     environment:
       - DISPLAY=${DISPLAY}
       - PULSE_SERVER=unix:/run/user/${UID}/pulse/native
@@ -15,4 +15,4 @@ services:
     devices:
       - /dev/snd
     user: "${UID}:${GID}"
-    restart: unless-stopped
+    # restart: unless-stopped
