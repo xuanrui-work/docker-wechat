@@ -4,6 +4,10 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 
+# Set display and pulse audio defaults
+ENV DISPLAY=:0
+ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
+
 # Define a build-time variable for the WeChat download URL
 ARG WECHAT_URL=https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
 
@@ -56,10 +60,6 @@ RUN wget $WECHAT_URL -O /tmp/wechat-install.deb && \
 # RUN useradd -m wechatuser
 # USER wechatuser
 # WORKDIR /home/wechatuser
-
-# Set display and pulse audio defaults
-ENV DISPLAY=:0
-ENV PULSE_SERVER=unix:/run/user/1000/pulse/native
 
 # Entrypoint
 ENTRYPOINT ["wechat"]
