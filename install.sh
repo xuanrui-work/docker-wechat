@@ -14,7 +14,7 @@ EOF
 
 # Set the permissions of the data directory
 mkdir -p $WECHAT_DATA_DIR
-chmod u+rw $WECHAT_DATA_DIR
+chmod +rw $WECHAT_DATA_DIR
 
 # Build the docker image
 docker compose build

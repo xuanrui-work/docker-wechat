@@ -10,8 +10,9 @@ services:
       - PULSE_SERVER=unix:/run/user/${UID}/pulse/native
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
-      - ${HOME}/.config/pulse/cookie:/home/wechatuser/.config/pulse/cookie
+      - ${HOME}/.config/pulse/cookie:/home/ubuntu/.config/pulse/cookie
       - /run/user/${UID}/pulse/native:/run/user/${UID}/pulse/native
+      - ${WECHAT_DATA_DIR}:/home/ubuntu
     devices:
       - /dev/snd
     user: "${UID}:${GID}"
