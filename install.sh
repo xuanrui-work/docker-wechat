@@ -4,9 +4,6 @@
 WECHAT_DATA_DIR=$(pwd)/wechat-data    # data directory
 DISPLAY=$DISPLAY
 
-# Build the docker image
-docker compose build
-
 # Configure the environment variables
 cat <<EOF > .env
 UID=$(id -u)
@@ -18,3 +15,6 @@ EOF
 # Set the permissions of the data directory
 mkdir -p $WECHAT_DATA_DIR
 chmod u+rw $WECHAT_DATA_DIR
+
+# Build the docker image
+docker compose build
